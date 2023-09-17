@@ -3,7 +3,7 @@
 How to use this template:
 
 ```sh
-npx create-express-api --typescript --directory my-api-name
+npx create-express-api --typescript --directory vanguardia tech
 ```
 
 Includes API Server utilities:
@@ -33,6 +33,8 @@ Development utilities:
   * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
 * [supertest](https://www.npmjs.com/package/supertest)
   * HTTP assertions made easy via superagent.
+
+## Node 20.6.1
 
 ## Setup
 

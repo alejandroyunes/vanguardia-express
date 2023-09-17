@@ -17,10 +17,8 @@ app.use(morgan('dev'))
 app.use(helmet())
 app.use(express.json())
 const corsOptions = {
-  origin: 'https://vanguardia.tech',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204, 
+  origin: 'https://www.vanguardia.tech',
+  methods: 'POST',
 };
 
 app.use(cors(corsOptions));
