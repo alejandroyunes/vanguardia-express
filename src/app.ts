@@ -15,11 +15,17 @@ const app = express()
 
 app.use(morgan('dev'))
 app.use(helmet())
-app.use(cors())
 app.use(express.json())
+const corsOptions = {
+  origin: 'https://vanguardia.tech',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204, 
+};
+
+app.use(cors(corsOptions));
 
 dotenv.config()
-
 
 const connectToDb = async () => {
   try {
