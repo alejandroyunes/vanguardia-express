@@ -16,8 +16,9 @@ const app = express()
 app.use(morgan('dev'))
 app.use(helmet())
 app.use(express.json())
+
 const corsOptions = {
-  origin: 'https://www.vanguardia.tech',
+  origin: ['https://www.vanguardia.tech'],
   methods: 'POST',
 };
 
@@ -35,16 +36,16 @@ const connectToDb = async () => {
 };
 connectToDb()
 
-app.get<{}, MessageResponse>('/', (req, res) => {
+app.get<{}, MessageResponse>('/', (_req, res) => {
   res.json({
     message: '👋🌎🌍🌏✨',
   })
 })
 
-app.post('/contacto', async (req: any, res) => {
-  const { name, email, message } = req.body
+app.post('/contacto', async (req, res) => {
+  const { name, email } = req.body
 
-  if (!name || !email || !message) {
+  if (!name || !email) {
     return res.status(400).json({ error: 'Name, email, and message are required' })
   }
 
@@ -54,8 +55,8 @@ app.post('/contacto', async (req: any, res) => {
 
     res.status(200).json({ message: 'ok' });
 
-  } catch (err) {
-    res.send(err)
+  } catch (error) {
+    res.send(error)
   }
 })
 
